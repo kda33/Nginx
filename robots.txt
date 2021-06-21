@@ -1,0 +1,11 @@
+Serve robots.txt inline in Nginx
+To quickly serve a robots.txt from Nginx without actually having access to 
+the physical file you can define the content of the robots.txt file in the Nginx .conf file.
+
+Allow access to all User-agents:
+
+  location /robots.txt {return 200 "User-agent: *\nDisallow:\n";}
+
+Disallow access to every User-agent:
+
+  location /robots.txt {return 200 "User-agent: *\nDisallow: /\n";}
